@@ -13,6 +13,6 @@ range.of.power<-range.of.power%>%mutate(datetime=as.POSIXct(strptime(paste(Date,
 
 png("plot1.png", width = 480, height = 480)
  
-plot1<-hist(range.of.power$Global_active_power,xlab="Global Active Power (killowatts)",col="red",main="Global Active Power")
+plot1<-with(range.of.power,hist(Global_active_power,xlab="Global Active Power (killowatts)",col="red",main="Global Active Power"))
 print(plot1)
 dev.off()

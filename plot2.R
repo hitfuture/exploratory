@@ -11,6 +11,6 @@ range.of.power <- house.hold.power%>%filter(Date == start | Date == end)
 range.of.power<-range.of.power%>%mutate(datetime=as.POSIXct(strptime(paste(Date,Time),'%d/%m/%Y %H:%M:%S')))
 #Save the plot to a file
 png("plot2.png", width = 480, height = 480)
-plot2<-plot(range.of.power$datetime,range.of.power$Global_active_power,type="l",xlab="",ylab="Global Active Power (killowatts)",col="black",main=NULL)
+plot2<-with(range.of.power,plot(datetime,Global_active_power,type="l",xlab="",ylab="Global Active Power (killowatts)",col="black",main=NULL))
 print(plot2)
 dev.off()
